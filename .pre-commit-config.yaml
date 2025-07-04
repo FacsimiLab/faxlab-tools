@@ -9,7 +9,10 @@ repos:
         - id: detect-private-key
         - id: check-merge-conflict
         - id: check-json
+          exclude: .vscode
         - id: check-toml
         - id: check-yaml
         - id: mixed-line-ending
           args: [--fix=lf]
+        - id: no-commit-to-branch
+          args: [--branch=main, --branch=release]

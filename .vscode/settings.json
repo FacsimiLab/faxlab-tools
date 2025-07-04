@@ -1,0 +1,10 @@
+{
+  "window.title": "FacsimiLab Tools",
+  "editor.formatOnPaste": true,
+  "problems.visibility": false,
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.git": true
+  },
+  "python.defaultInterpreterPath": ".venv/bin/python",
+}
