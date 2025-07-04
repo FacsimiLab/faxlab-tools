@@ -1,5 +1,5 @@
 [project]
-name = "faxlab-tools"
+name = "faxlab_tools"
 version = "0.1.0"
 description = "A python library of tools useful for reproducible research, built upon the FacsimiLab philosophy."
 readme = "README.md"
@@ -7,7 +7,10 @@ authors = [
     { name = "Pranav Kumar Mishra", email = "62562712+pranavmishra90@users.noreply.github.com" }
 ]
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "numpy>=2.2.6",
+    "pandas>=2.3.0",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -23,3 +26,15 @@ dev = [
     "python-semantic-release>=10.2.0",
     "ruff>=0.12.2",
 ]
+
+[tool.ruff]
+line-length = 100
+indent-width = 2
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["E", "F"]

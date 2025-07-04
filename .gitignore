@@ -4,6 +4,11 @@
 *.env
 *.secrets
 
+# Temporary files
+*.tmp
+*_tmp*
+**/tmp
+
 # Python
 .venv
 **/__pycache__
