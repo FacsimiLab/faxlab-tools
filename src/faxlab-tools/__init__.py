@@ -5,4 +5,4 @@ from . import tables
 from . import io
 from . import utils
 
-__all__ = ["io","tables", ]
+__all__ = ["core", "figures", "tables", "io","utils" ]

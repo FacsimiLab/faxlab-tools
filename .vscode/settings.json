@@ -1,10 +1,15 @@
 {
   "window.title": "FacsimiLab Tools",
   "editor.formatOnPaste": true,
-  "problems.visibility": false,
+  "problems.visibility": true,
   "editor.tabSize": 2,
   "files.exclude": {
     "**/.git": true
   },
   "python.defaultInterpreterPath": ".venv/bin/python",
+  "problems.showCurrentInStatus": false,
+  "ruff.exclude": [
+    "tmp"
+  ],
+  "ruff.lint.ignore": ["E501"],
 }

@@ -39,3 +39,6 @@ docstring-code-format = true
 [tool.ruff.lint]
 select = ["E", "F"]
 ignore = ["E501"]
+exclude = [
+  "tmp",
+]
