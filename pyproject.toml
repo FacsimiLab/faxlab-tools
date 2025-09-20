@@ -4,13 +4,10 @@ version = "0.1.0"
 description = "A python library of tools useful for reproducible research, built upon the FacsimiLab philosophy."
 readme = "README.md"
 authors = [
-    { name = "Pranav Kumar Mishra", email = "62562712+pranavmishra90@users.noreply.github.com" }
+  { name = "Pranav Kumar Mishra", email = "62562712+pranavmishra90@users.noreply.github.com" },
 ]
 requires-python = ">=3.10"
-dependencies = [
-    "numpy>=2.2.6",
-    "pandas>=2.3.0",
-]
+dependencies = ["numpy>=2.2.6", "pandas>=2.3.0"]
 
 [build-system]
 requires = ["hatchling"]
@@ -21,10 +18,10 @@ packages = ["src/faxlab_tools"]
 
 [dependency-groups]
 dev = [
-    "datalad>=1.2.1",
-    "pre-commit>=4.2.0",
-    "python-semantic-release>=10.2.0",
-    "ruff>=0.12.2",
+  "datalad>=1.2.1",
+  "pre-commit>=4.2.0",
+  "python-semantic-release>=10.2.0",
+  "ruff>=0.12.2",
 ]
 
 [tool.ruff]
@@ -38,11 +35,25 @@ docstring-code-format = true
 
 [tool.ruff.lint]
 select = ["E", "F"]
-ignore = ["E501"]
+ignore = ["F401", "E402", "E501"]
 exclude = [
-  "tmp", "build", "dist", ".venv", "env", "venv", ".eggs", "*.egg-info", ".git", ".hg", ".mypy_cache", ".tox", ".nox", ".pytest_cache", "__pypackages__", "docs/conf.py"
+  "tmp",
+  "build",
+  "dist",
+  ".venv",
+  "env",
+  "venv",
+  ".eggs",
+  "*.egg-info",
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".tox",
+  ".nox",
+  ".pytest_cache",
+  "__pypackages__",
+  "docs/conf.py",
 ]
-
 
 
 ### Testing
