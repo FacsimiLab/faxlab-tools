@@ -4,18 +4,6 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
-      - id: check-added-large-files
-      - id: detect-private-key
-      - id: check-merge-conflict
-      - id: mixed-line-ending
-        args: [--fix=lf]
-      - id: no-commit-to-branch
-        args: [--branch=main, --branch=release]
-
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
-    hooks:
       - id: end-of-file-fixer
       - id: check-added-large-files
       - id: detect-private-key
@@ -27,4 +15,4 @@ repos:
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: no-commit-to-branch
-        args: [--branch=main, --branch=release]
+        args: [--branch=release]
