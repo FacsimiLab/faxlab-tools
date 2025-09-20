@@ -1,4 +1,6 @@
-# `faxlab-tools`: A python package aiding translational research using the FacimiLab philosophy for reproducible research.
+# FacsimiLab Tools (`faxlab-tools`): 
+
+A python package aiding translational research using the FacimiLab philosophy for reproducible research.
 
 
 ## Using the editable install
