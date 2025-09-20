@@ -9,12 +9,8 @@ authors = [
 requires-python = ">=3.10"
 dependencies = ["numpy>=2.2.6", "pandas>=2.3.0"]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/faxlab_tools"]
+[project.optional-dependencies]
+build = ["uv ~= 0.7.12"]
 
 [dependency-groups]
 dev = [
@@ -24,7 +20,7 @@ dev = [
   "ruff>=0.12.2",
 ]
 
-# Linting and formatting
+# Lint and Format
 #------------------------------------------------------------------------
 
 [tool.ruff]
@@ -59,10 +55,20 @@ exclude = [
 ]
 
 
-# Testing
+# Test
 #------------------------------------------------------------------------
 [tool.pytest.ini_options]
 addopts = "-s -v"
+
+
+# Build
+#------------------------------------------------------------------------
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/faxlab_tools"]
 
 
 # Version control
@@ -72,8 +78,13 @@ addopts = "-s -v"
 
 version_toml = ["pyproject.toml:project.version"]
 assets = []
-build_command_env = ['GH_TOKEN']
-build_command = 'echo "No build step required" '
+
+build_command = """
+    uv lock --upgrade-package "$PACKAGE_NAME"
+    git add uv.lock
+    uv build
+"""
+
 commit_message = "ci(semantic-release): automatic update - v{version}"
 commit_parser = "conventional"
 
@@ -84,14 +95,25 @@ no_git_verify = false
 
 tag_format = "v{version}"
 upload_to_release = true
-template_dir="./github/templates"
+template_dir = "./github/templates"
 
 [tool.semantic_release.commit_author]
 env = "GIT_COMMIT_AUTHOR"
 default = "Pranav Kumar Mishra <62562712+pranavmishra90@users.noreply.github.com>"
 
 [tool.semantic_release.commit_parser_options]
-allowed_tags = ["build", "chore", "ci", "docs", "feat", "fix", "perf", "style", "refactor", "test"]
+allowed_tags = [
+  "build",
+  "chore",
+  "ci",
+  "docs",
+  "feat",
+  "fix",
+  "perf",
+  "style",
+  "refactor",
+  "test",
+]
 minor_tags = ["feat", "docs"]
 patch_tags = ["fix", "perf"]
 default_bump_level = 0
@@ -114,8 +136,8 @@ prerelease_token = "beta"
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
-output_format="md"
-template_dir="./github/templates"
+output_format = "md"
+template_dir = "./github/templates"
 
 [tool.semantic_release.changelog.environment]
 block_start_string = "{%"
@@ -131,8 +153,8 @@ keep_trailing_newline = false
 extensions = []
 autoescape = true
 
-# [tool.semantic_release.remote]
-# name = "origin"
-# type = "github"
-# ignore_token_for_push = true
-# insecure = false
+[tool.semantic_release.remote]
+name = "origin"
+type = "github"
+ignore_token_for_push = true
+insecure = false

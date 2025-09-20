@@ -14,9 +14,6 @@
 **/__pycache__
 **/.pytest_cache
 
-# UV
-uv.lock
-
 # Jupyter Notebook
 .ipynb_checkpoints
 **/.jupyter_cache/
