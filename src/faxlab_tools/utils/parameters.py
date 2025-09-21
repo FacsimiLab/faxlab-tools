@@ -86,6 +86,8 @@ def check_globals_loaded(param_file, global_dict=None):
   Args:
       param_file (str): Path to the Python parameters file.
       global_dict (dict, optional): Dictionary to check (default: globals()).
+  Returns:
+      bool: True if all parameters are present and match, False otherwise.
   """
   from rich import print
   import runpy
@@ -109,6 +111,8 @@ def check_globals_loaded(param_file, global_dict=None):
   # While this is not required, it helps prevent linting errors from Ruff
   # We want to see if any of these variables remain None after loading parameters
   for k in global_dict:
+    if k.startswith("__"):
+      continue
     if global_dict[k] is None:
       none_vars.append(k)
 
@@ -122,7 +126,9 @@ def check_globals_loaded(param_file, global_dict=None):
   if none_vars:
     print("Variables set to None in globals:", none_vars)
   if not missing and not mismatched and not none_vars:
-    print("All parameters loaded correctly into globals. No variables are set to None.")
+    return True
+  else:
+    return False
 
 def save_globals_to_params(param_names, filepath):
   """
