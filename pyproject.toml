@@ -7,7 +7,10 @@ authors = [
   { name = "Pranav Kumar Mishra", email = "62562712+pranavmishra90@users.noreply.github.com" },
 ]
 requires-python = ">=3.10"
-dependencies = ["numpy>=2.2.6", "pandas>=2.3.0"]
+dependencies = [
+    "numpy>=2.2.6",
+    "pandas>=2.3.0",
+]
 
 [project.optional-dependencies]
 build = ["uv ~= 0.7.12"]
@@ -16,6 +19,7 @@ build = ["uv ~= 0.7.12"]
 dev = [
   "datalad>=1.2.1",
   "pre-commit>=4.2.0",
+  "pytest>=8.4.2",
   "python-semantic-release>=10.2.0",
   "ruff>=0.12.2",
 ]

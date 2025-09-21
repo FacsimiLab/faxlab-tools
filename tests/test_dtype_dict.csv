@@ -1,0 +1,6 @@
+col_int,int
+col_float,float
+col_str,str
+col_cat,category
+col_int_str,int
+col_float_str,float

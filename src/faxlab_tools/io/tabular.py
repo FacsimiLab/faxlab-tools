@@ -1,3 +1,5 @@
+__all__ = ["csv_to_dict"]
+
 import csv
 
 def csv_to_dict(path):
