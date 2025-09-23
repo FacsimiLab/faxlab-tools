@@ -135,6 +135,15 @@ default_bump_level = 0
 match = "main"
 prerelease = false
 
+[tool.semantic_release.branches.feat]
+match = "feat/*"
+prerelease_token = "beta"
+prerelease = true
+
+[tool.semantic_release.branches.fix]
+match = "fix/*"
+prerelease_token = "beta"
+prerelease = true
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"

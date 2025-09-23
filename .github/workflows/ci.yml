@@ -3,8 +3,8 @@ name: Continuous Improvement
 on:
   push:
     branches:
-      - rc
-      - main
+      - feat/*
+      - fix/*
   pull_request:
     branches:
       - rc
@@ -29,14 +29,21 @@ jobs:
       # the branch was updated. To keep PSR working with the configured release branches,
       # we force a checkout of the desired release branch but at the workflow sha HEAD.
       - name: Setup | Checkout Repository at workflow sha
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          fetch-depth: 0
+          fetch-depth: 5
           ref: ${{ github.sha }}
           
       - name: Setup | Force correct release branch on workflow SHA
         run: |
           git checkout -B ${{ github.ref_name }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Testing
+        run: |
+          uv test pytest -s -v
 
       # This section is commented out during the early alpha development phase.
 
