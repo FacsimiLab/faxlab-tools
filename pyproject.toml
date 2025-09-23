@@ -122,20 +122,18 @@ minor_tags = ["feat", "docs"]
 patch_tags = ["fix", "perf"]
 default_bump_level = 0
 
-[tool.semantic_release.branches.release]
-match = "release"
-prerelease = false
+# [tool.semantic_release.branches.release]
+# match = "release"
+# prerelease = false
 
-[tool.semantic_release.branches.rc]
-match = "rc/*"
-prerelease_token = "rc"
-prerelease = true
+# [tool.semantic_release.branches.rc]
+# match = "rc/*"
+# prerelease_token = "rc"
+# prerelease = true
 
 [tool.semantic_release.branches.main]
 match = "main"
-# Pre-release is set to true, BUT the GitHub action will not create a tag or release on this branch
-prerelease = true
-prerelease_token = "beta"
+prerelease = false
 
 
 [tool.semantic_release.changelog.default_templates]
