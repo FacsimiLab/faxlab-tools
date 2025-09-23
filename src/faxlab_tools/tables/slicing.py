@@ -1,4 +1,4 @@
-__all__ = ["filter_columns_substring", "drop_columns_regex"]
+__all__ = ["filter_columns_substring", "drop_columns_regex", "filter_df_substring"]
 
 import re
 import pandas as pd
@@ -16,6 +16,20 @@ def filter_columns_substring(df: pd.DataFrame, substrings: list) -> list:
   """
   columns = df.columns.tolist()
   return [col for col in columns if any(sub in col for sub in substrings)]
+
+def filter_df_substring(df: pd.DataFrame, substrings: list) -> pd.DataFrame:
+  """
+  Return a DataFrame with columns containing any of the given substrings.
+
+  Args:
+      df (pd.DataFrame): Input DataFrame.
+      substrings (list of str): List of substrings to search for.
+
+  Returns:
+      pd.DataFrame: Filtered DataFrame with columns containing any substring.
+  """
+  filtered_columns = filter_columns_substring(df, substrings)
+  return df[filtered_columns]
 
 
 def drop_columns_regex(df: pd.DataFrame, regex: str, verbosity=False):
