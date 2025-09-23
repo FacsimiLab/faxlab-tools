@@ -6,6 +6,7 @@ A python package aiding translational research using the FacimiLab philosophy fo
 ## Using the editable install
 
 To install the package in editable mode for development, run:
+
 ```bash
 # Enter your python environment:
 
@@ -17,11 +18,17 @@ source .venv/bin/activate
 uv pip install -e ~/work/facsimilab/universe/tools
 ```
 
+**Alpha Version Warning**: this project is in early alpha and will be undergoing significant API changes. While semantic versioning is being used, breaking changes will not incremented as major version changes. Features and functions are being migrated by the author from a personal codebase containing many python functions into a more structured package.
+
+
 ## Development
 
 To set up the development environment, run:
 ```bash
-
 uv sync
 pre-commit install
 ```
+
+## License
+
+MIT License © 2025 Pranav Kumar Mishra. See [LICENSE.md](./LICENSE.md) for details.
