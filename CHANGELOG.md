@@ -2,6 +2,22 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.1 (2025-09-23)
+
+### Continuous Integration
+
+- Install uv and also add PSR for feat and fix branches
+  ([`27e3b63`](https://github.com/pranavmishra90/faxlab-tools/commit/27e3b63859079509c2dd83a089994f2be9f2cc79))
+
+- Install uv, run tests, but do not build as part of PSR
+  ([`585b60a`](https://github.com/pranavmishra90/faxlab-tools/commit/585b60a3aba4c8046908561f8fe87dc8b4852eb1))
+
+### Features
+
+- Add the CI/CD workflows from FacsimiLab
+  ([`c0aabbe`](https://github.com/pranavmishra90/faxlab-tools/commit/c0aabbef60bfae889c5e6433b3a9385592f64aca))
+
+
 ## v0.1.0 (2025-09-23)
 
 ### Bug Fixes
