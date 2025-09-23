@@ -1,4 +1,4 @@
-__all__ = ["find_and_replace_df", "fix_column_dtype"]
+__all__ = ["find_and_replace_df", "fix_column_dtype", "df_rename_sample_col_by_json"]
 
 import numpy as np
 import pandas as pd
@@ -95,3 +95,39 @@ def fix_column_dtype(df, dtype_dict=None, csv_path=None, dates_only_list=[], dat
   df_adjusted = df_adjusted.replace(-99999999, np.nan, regex=False)
 
   return df_adjusted
+
+
+def df_rename_sample_col_by_json(df, samples_json, key_name="short_title"):
+  import random  # noqa
+  import re  # noqa
+
+  if "logger" in globals():
+    global logger
+    rprint = logger.debug
+  else:
+    from rich import print as rprint
+
+  rename_col = {}
+
+  for key in samples_json.keys():
+    rename_col[f"S{key}"] = samples_json[key]["short_title"]
+    rename_col[f"{key}"] = samples_json[key]["short_title"]
+
+  df_col = df.columns
+
+  # Find and replace substrings in df_col using rename_col
+
+  def replace_substrings(col, replace_dict):
+    for search, replace in replace_dict.items():
+      col = re.sub(re.escape(search), replace, col)
+    return col
+
+  df_col_renamed = [replace_substrings(col, rename_col) for col in df_col]
+
+  df = df.rename(columns=dict(zip(df_col, df_col_renamed)))
+
+  rprint(
+    f"df columns renamed. Random set of col to confirm: {', '.join(sorted(random.sample(list(df.columns), 10)))}"
+  )
+
+  return df
