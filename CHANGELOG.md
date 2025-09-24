@@ -2,6 +2,25 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.2 (2025-09-23)
+
+### Build System
+
+- Add version file in addition to pyproject
+  ([`b028ef7`](https://github.com/pranavmishra90/faxlab-tools/commit/b028ef7db1bd845a1a117b62bd691479d5001432))
+
+### Continuous Integration
+
+- Fix error in uv run pytest
+  ([`902b2d1`](https://github.com/pranavmishra90/faxlab-tools/commit/902b2d1994d0c58c9b12258712a175bbcf0baeb0))
+
+### Features
+
+- Add functions to rename categorical columns and a function to perform a find-replace using regex
+  and an input json dictionary
+  ([`77eb6ea`](https://github.com/pranavmishra90/faxlab-tools/commit/77eb6eaebe3a0fce69b26f312c233ed741fdd459))
+
+
 ## v0.2.0-beta.1 (2025-09-23)
 
 ### Continuous Integration
