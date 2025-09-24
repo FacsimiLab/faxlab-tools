@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.3 (2025-09-23)
+
+### Features
+
+- Include a __version__.py which also updates from PSR
+  ([`2c6408e`](https://github.com/pranavmishra90/faxlab-tools/commit/2c6408eece258989ac70d49a778b2f82529c1195))
+
+
 ## v0.2.0-beta.2 (2025-09-23)
 
 ### Build System
