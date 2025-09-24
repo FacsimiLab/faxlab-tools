@@ -43,7 +43,7 @@ jobs:
 
       - name: Testing
         run: |
-          uv test pytest -s -v
+          uv run pytest -s -v
 
       # This section is commented out during the early alpha development phase.
 

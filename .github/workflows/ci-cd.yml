@@ -64,7 +64,7 @@ jobs:
 
       - name: Testing
         run: |
-          uv test pytest -s -v
+          uv run pytest -s -v
 
       - name: Test Build
         run: |
