@@ -80,7 +80,10 @@ packages = ["src/faxlab_tools"]
 
 [tool.semantic_release]
 
-version_toml = ["pyproject.toml:project.version"]
+version_toml = [
+  "pyproject.toml:project.version",
+  "src/faxlab_tools/__version__.py:__version__"
+]
 assets = []
 
 build_command = """
