@@ -1,12 +1,21 @@
-__all__ = ["find_and_replace_df", "fix_column_dtype", "df_rename_sample_col_by_json"]
+__all__ = [
+  "find_and_replace_df",
+  "df_rename_sample_col_by_json",
+  "df_rename_categories",
+  "df_rename_sample_col_by_json",
+  "fix_column_dtype",
+]
 
 import numpy as np
 import pandas as pd
+import re
 
 from ..io.tabular import csv_to_dict
 
 
-def find_and_replace_df(input_df, column_name, input_sample, replace_sample):
+def find_and_replace_df(
+  input_df: pd.DataFrame, column_name: str, input_sample, replace_sample
+) -> pd.DataFrame:
   """
   Perform a find and replace operation within a specified column of a pandas DataFrame.
 
@@ -24,7 +33,58 @@ def find_and_replace_df(input_df, column_name, input_sample, replace_sample):
   return output_df
 
 
-def fix_column_dtype(df, dtype_dict=None, csv_path=None, dates_only_list=[], datetime_list=[], coerce_numeric=True):
+def df_find_replace_regex_json(df: pd.DataFrame, column: str, json_dict: dict) -> pd.DataFrame:
+  """
+  Perform regex-based find and replace on a DataFrame column using a JSON dictionary of patterns and replacements.
+
+  Args:
+    df (pd.DataFrame): The input DataFrame.
+    column (str): The column to perform replacements in.
+    json_dict (dict): Dictionary mapping regex patterns to replacement strings.
+
+  Returns:
+    pd.DataFrame: DataFrame with replacements applied in the specified column.
+  """
+
+  for pattern, replacement in json_dict.items():
+    df[column] = df[column].apply(
+      lambda x: re.sub(pattern, replacement, x) if isinstance(x, str) else x
+    )
+  return df
+
+
+def df_rename_categories(df: pd.DataFrame, column: str, mapper: dict) -> pd.DataFrame:
+  """
+  Rename categories in a categorical DataFrame column using regex-based mapping.
+
+  Args:
+    df (pd.DataFrame): The input DataFrame.
+    column (str): The categorical column to rename categories for.
+    mapper (dict): Dictionary mapping regex patterns to replacement strings.
+
+  Returns:
+    pd.DataFrame: DataFrame with renamed categories in the specified column.
+  """
+
+  # Get current categories
+  categories = list(df[column].cat.categories)
+
+  # Build new categories with regex replacements
+  new_categories = []
+  for cat in categories:
+    new_cat = cat
+    for pattern, replacement in mapper.items():
+      new_cat = re.sub(re.escape(pattern), replacement, new_cat)
+    new_categories.append(new_cat)
+
+  # Rename categories using the new list
+  df[column] = df[column].cat.rename_categories(new_categories)
+  return df
+
+
+def fix_column_dtype(
+  df, dtype_dict=None, csv_path=None, dates_only_list=[], datetime_list=[], coerce_numeric=True
+):
   """
   Change DataFrame column dtypes according to a Python dictionary or CSV file.
 
