@@ -1,2 +1,5 @@
 [datalad "dataset"]
 	id = d13dee2f-85c1-47dc-81e5-0d80268ff6e9
+
+[datalad "locations"]
+  dataset-procedures = .datalad/procedures
