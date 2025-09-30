@@ -1,6 +1,9 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-09-30)
+
+
 ## v0.1.0 (2025-09-30)
 
 ### Bug Fixes
@@ -15,6 +18,10 @@ Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
 
 - Fix_column_dtype() and its unit tests
   ([`3951bcd`](https://github.com/FacsimiLab/faxlab-tools/commit/3951bcd9fb26115f44ead45f979526a59b458216))
+
+- Functions missing from __all__, remove re.escape to allow regex patterns. ensure categorical dtype
+  before renaming categories.
+  ([`fd52e66`](https://github.com/FacsimiLab/faxlab-tools/commit/fd52e6691a038445af9b200ae96bfc118e704954))
 
 - Remove duplicate 'df_rename_sample_by_col_json'
   ([`4ba14da`](https://github.com/FacsimiLab/faxlab-tools/commit/4ba14da301f0e6531b1c468ed9ce6b0178f28d47))
@@ -56,6 +63,15 @@ Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
 - Fix error in uv run pytest
   ([`902b2d1`](https://github.com/FacsimiLab/faxlab-tools/commit/902b2d1994d0c58c9b12258712a175bbcf0baeb0))
 
+- Fix missing project number
+  ([`f8c07df`](https://github.com/FacsimiLab/faxlab-tools/commit/f8c07dfd4c8875952ce4b27e1ce5c299f2a18822))
+
+- Fix token which was not working
+  ([`277d629`](https://github.com/FacsimiLab/faxlab-tools/commit/277d62976190e71fb6eb1f78f7daf54f44d73a1f))
+
+- Fix url typo
+  ([`72d6d7a`](https://github.com/FacsimiLab/faxlab-tools/commit/72d6d7ae6a036970de75ec0493a762aaab004c55))
+
 - Install uv and also add PSR for feat and fix branches
   ([`27e3b63`](https://github.com/FacsimiLab/faxlab-tools/commit/27e3b63859079509c2dd83a089994f2be9f2cc79))
 
@@ -65,6 +81,9 @@ Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
 - Semantic versioning in the alpha stages will occur on the main branch, where breaking changes do
   not require a major version bump.
   ([`1694a58`](https://github.com/FacsimiLab/faxlab-tools/commit/1694a58f3e46294e8d1b1a64a565aceab09dd0dd))
+
+- **semantic-release**: Automatic update - v0.1.0
+  ([`c7ecbee`](https://github.com/FacsimiLab/faxlab-tools/commit/c7ecbee28d74ed3ba3ab9ed8830acbbe75c58cb8))
 
 - **semantic-release**: Automatic update - v0.1.0
   ([`84f8d3d`](https://github.com/FacsimiLab/faxlab-tools/commit/84f8d3de27e30bce4758cb33b0e38ba7cca8577f))
@@ -101,12 +120,21 @@ Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
   globals are loaded, and saving globals to a parameters file
   ([`4bbb11d`](https://github.com/FacsimiLab/faxlab-tools/commit/4bbb11d0cd50d08da1895b1db9aea827967b088d))
 
+- Add a procedure to update a list of local envs which are using an editable install of this package
+  ([`6c0b6a3`](https://github.com/FacsimiLab/faxlab-tools/commit/6c0b6a3f34674b79cef52eff4b15225fa3697e84))
+
+- Add a procedure to update a list of local envs which are using an editable install of this package
+  ([`e56b042`](https://github.com/FacsimiLab/faxlab-tools/commit/e56b042962123abe506850ca6713bb18b0f6ad11))
+
 - Add functions to rename categorical columns and a function to perform a find-replace using regex
   and an input json dictionary
   ([`77eb6ea`](https://github.com/FacsimiLab/faxlab-tools/commit/77eb6eaebe3a0fce69b26f312c233ed741fdd459))
 
 - Add gitignore, vscode settings, pre-commit hooks
   ([`dad873e`](https://github.com/FacsimiLab/faxlab-tools/commit/dad873e31885757b8d3bb8156eef30ae960ff04b))
+
+- Add module for transcriptomics analysis
+  ([`adcb5bb`](https://github.com/FacsimiLab/faxlab-tools/commit/adcb5bb6153a579bf47ec5a78a5e7a9b1f079a94))
 
 - Add parameters functions to the utils
   ([`ae21a4a`](https://github.com/FacsimiLab/faxlab-tools/commit/ae21a4a81a9ad4b6368babd6da5a45f32ebc3ca3))
