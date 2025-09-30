@@ -186,7 +186,7 @@ def df_rename_sample_col_by_json(df, samples_json, key_name="short_title"):
   df = df.rename(columns=dict(zip(df_col, df_col_renamed)))
 
   rprint(
-    f"df columns renamed. Random set of col to confirm: {', '.join(sorted(random.sample(list(df.columns), 10)))}"
+    f"df columns renamed. Random set of col to confirm: {', '.join(sorted(random.sample(list(df.columns), min(10, len(df.columns)))))}"
   )
 
   return df
