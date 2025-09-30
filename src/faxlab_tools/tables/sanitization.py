@@ -2,7 +2,6 @@ __all__ = [
   "find_and_replace_df",
   "df_rename_sample_col_by_json",
   "df_rename_categories",
-  "df_rename_sample_col_by_json",
   "fix_column_dtype",
 ]
 
