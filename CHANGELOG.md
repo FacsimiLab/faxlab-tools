@@ -2,6 +2,49 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.3 (2025-09-23)
+
+### Features
+
+- Include a __version__.py which also updates from PSR
+  ([`2c6408e`](https://github.com/pranavmishra90/faxlab-tools/commit/2c6408eece258989ac70d49a778b2f82529c1195))
+
+
+## v0.2.0-beta.2 (2025-09-23)
+
+### Build System
+
+- Add version file in addition to pyproject
+  ([`b028ef7`](https://github.com/pranavmishra90/faxlab-tools/commit/b028ef7db1bd845a1a117b62bd691479d5001432))
+
+### Continuous Integration
+
+- Fix error in uv run pytest
+  ([`902b2d1`](https://github.com/pranavmishra90/faxlab-tools/commit/902b2d1994d0c58c9b12258712a175bbcf0baeb0))
+
+### Features
+
+- Add functions to rename categorical columns and a function to perform a find-replace using regex
+  and an input json dictionary
+  ([`77eb6ea`](https://github.com/pranavmishra90/faxlab-tools/commit/77eb6eaebe3a0fce69b26f312c233ed741fdd459))
+
+
+## v0.2.0-beta.1 (2025-09-23)
+
+### Continuous Integration
+
+- Install uv and also add PSR for feat and fix branches
+  ([`27e3b63`](https://github.com/pranavmishra90/faxlab-tools/commit/27e3b63859079509c2dd83a089994f2be9f2cc79))
+
+- Install uv, run tests, but do not build as part of PSR
+  ([`585b60a`](https://github.com/pranavmishra90/faxlab-tools/commit/585b60a3aba4c8046908561f8fe87dc8b4852eb1))
+
+### Features
+
+- Add the CI/CD workflows from FacsimiLab
+  ([`c0aabbe`](https://github.com/pranavmishra90/faxlab-tools/commit/c0aabbef60bfae889c5e6433b3a9385592f64aca))
+
+
 ## v0.1.0 (2025-09-23)
 
 ### Bug Fixes

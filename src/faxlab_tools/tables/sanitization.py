@@ -1,12 +1,20 @@
-__all__ = ["find_and_replace_df", "fix_column_dtype"]
+__all__ = [
+  "find_and_replace_df",
+  "df_rename_sample_col_by_json",
+  "df_rename_categories",
+  "fix_column_dtype",
+]
 
 import numpy as np
 import pandas as pd
+import re
 
 from ..io.tabular import csv_to_dict
 
 
-def find_and_replace_df(input_df, column_name, input_sample, replace_sample):
+def find_and_replace_df(
+  input_df: pd.DataFrame, column_name: str, input_sample, replace_sample
+) -> pd.DataFrame:
   """
   Perform a find and replace operation within a specified column of a pandas DataFrame.
 
@@ -24,7 +32,58 @@ def find_and_replace_df(input_df, column_name, input_sample, replace_sample):
   return output_df
 
 
-def fix_column_dtype(df, dtype_dict=None, csv_path=None, dates_only_list=[], datetime_list=[], coerce_numeric=True):
+def df_find_replace_regex_json(df: pd.DataFrame, column: str, json_dict: dict) -> pd.DataFrame:
+  """
+  Perform regex-based find and replace on a DataFrame column using a JSON dictionary of patterns and replacements.
+
+  Args:
+    df (pd.DataFrame): The input DataFrame.
+    column (str): The column to perform replacements in.
+    json_dict (dict): Dictionary mapping regex patterns to replacement strings.
+
+  Returns:
+    pd.DataFrame: DataFrame with replacements applied in the specified column.
+  """
+
+  for pattern, replacement in json_dict.items():
+    df[column] = df[column].apply(
+      lambda x: re.sub(pattern, replacement, x) if isinstance(x, str) else x
+    )
+  return df
+
+
+def df_rename_categories(df: pd.DataFrame, column: str, mapper: dict) -> pd.DataFrame:
+  """
+  Rename categories in a categorical DataFrame column using regex-based mapping.
+
+  Args:
+    df (pd.DataFrame): The input DataFrame.
+    column (str): The categorical column to rename categories for.
+    mapper (dict): Dictionary mapping regex patterns to replacement strings.
+
+  Returns:
+    pd.DataFrame: DataFrame with renamed categories in the specified column.
+  """
+
+  # Get current categories
+  categories = list(df[column].cat.categories)
+
+  # Build new categories with regex replacements
+  new_categories = []
+  for cat in categories:
+    new_cat = cat
+    for pattern, replacement in mapper.items():
+      new_cat = re.sub(re.escape(pattern), replacement, new_cat)
+    new_categories.append(new_cat)
+
+  # Rename categories using the new list
+  df[column] = df[column].cat.rename_categories(new_categories)
+  return df
+
+
+def fix_column_dtype(
+  df, dtype_dict=None, csv_path=None, dates_only_list=[], datetime_list=[], coerce_numeric=True
+):
   """
   Change DataFrame column dtypes according to a Python dictionary or CSV file.
 
@@ -95,3 +154,39 @@ def fix_column_dtype(df, dtype_dict=None, csv_path=None, dates_only_list=[], dat
   df_adjusted = df_adjusted.replace(-99999999, np.nan, regex=False)
 
   return df_adjusted
+
+
+def df_rename_sample_col_by_json(df, samples_json, key_name="short_title"):
+  import random  # noqa
+  import re  # noqa
+
+  if "logger" in globals():
+    global logger
+    rprint = logger.debug
+  else:
+    from rich import print as rprint
+
+  rename_col = {}
+
+  for key in samples_json.keys():
+    rename_col[f"S{key}"] = samples_json[key]["short_title"]
+    rename_col[f"{key}"] = samples_json[key]["short_title"]
+
+  df_col = df.columns
+
+  # Find and replace substrings in df_col using rename_col
+
+  def replace_substrings(col, replace_dict):
+    for search, replace in replace_dict.items():
+      col = re.sub(re.escape(search), replace, col)
+    return col
+
+  df_col_renamed = [replace_substrings(col, rename_col) for col in df_col]
+
+  df = df.rename(columns=dict(zip(df_col, df_col_renamed)))
+
+  rprint(
+    f"df columns renamed. Random set of col to confirm: {', '.join(sorted(random.sample(list(df.columns), min(10, len(df.columns)))))}"
+  )
+
+  return df
