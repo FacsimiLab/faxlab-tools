@@ -404,7 +404,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "numpy", specifier = ">=2.2.6" },
+    { name = "numpy", specifier = ">=2" },
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "uv", marker = "extra == 'build'", specifier = "~=0.7.12" },
 ]

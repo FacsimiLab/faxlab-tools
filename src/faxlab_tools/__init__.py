@@ -5,4 +5,7 @@ from . import tables
 from . import io
 from . import utils
 
-__all__ = ["core", "figures", "tables", "io","utils" ]
+# Expose __version__ at the package level
+from .__version__ import __version__
+
+__all__ = ["core", "figures", "tables", "transcriptomics", "io", "utils"]

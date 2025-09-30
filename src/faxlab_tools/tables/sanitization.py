@@ -1,8 +1,9 @@
 __all__ = [
   "find_and_replace_df",
-  "df_rename_sample_col_by_json",
+  "df_find_replace_regex_json",
   "df_rename_categories",
   "fix_column_dtype",
+  "df_rename_sample_col_by_json",
 ]
 
 import numpy as np
@@ -49,7 +50,7 @@ def df_find_replace_regex_json(df: pd.DataFrame, column: str, json_dict: dict) -
     df[column] = df[column].apply(
       lambda x: re.sub(pattern, replacement, x) if isinstance(x, str) else x
     )
-  return df
+  return df.copy()
 
 
 def df_rename_categories(df: pd.DataFrame, column: str, mapper: dict) -> pd.DataFrame:
@@ -73,10 +74,12 @@ def df_rename_categories(df: pd.DataFrame, column: str, mapper: dict) -> pd.Data
   for cat in categories:
     new_cat = cat
     for pattern, replacement in mapper.items():
-      new_cat = re.sub(re.escape(pattern), replacement, new_cat)
+      new_cat = re.sub(pattern, replacement, new_cat)
     new_categories.append(new_cat)
 
-  # Rename categories using the new list
+  # Ensure the column is categorical before renaming categories
+  if not pd.api.types.is_categorical_dtype(df[column]):
+    df[column] = df[column].astype("category")
   df[column] = df[column].cat.rename_categories(new_categories)
   return df
 
