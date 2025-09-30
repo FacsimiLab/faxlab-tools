@@ -1,6 +1,6 @@
 [project]
 name = "faxlab-tools"
-version = "0.2.0-beta.3"
+version = "0.1.0"
 description = "A python library of tools useful for reproducible research, built upon the FacsimiLab philosophy."
 readme = "README.md"
 authors = [
