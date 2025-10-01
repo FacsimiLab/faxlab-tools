@@ -381,7 +381,7 @@ wheels = [
 
 [[package]]
 name = "faxlab-tools"
-version = "0.3.0b2"
+version = "0.3.0b3"
 source = { editable = "." }
 dependencies = [
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -389,6 +389,7 @@ dependencies = [
     { name = "opentelemetry-api" },
     { name = "opentelemetry-distro", extra = ["otlp"] },
     { name = "opentelemetry-instrumentation" },
+    { name = "opentelemetry-sdk" },
     { name = "pandas" },
 ]
 
@@ -412,6 +413,7 @@ requires-dist = [
     { name = "opentelemetry-api", specifier = ">=1.37.0" },
     { name = "opentelemetry-distro", extras = ["otlp"], specifier = ">=0.58b0" },
     { name = "opentelemetry-instrumentation", specifier = ">=0.58b0" },
+    { name = "opentelemetry-sdk", specifier = ">=1.37.0" },
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "uv", marker = "extra == 'build'", specifier = "~=0.7.12" },
 ]
