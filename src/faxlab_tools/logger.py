@@ -10,7 +10,7 @@ from opentelemetry import trace
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
-from opentelemetry._logs import set_otel_logger_provider
+from opentelemetry._logs import set_logger_provider
 from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler
 from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
 from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
@@ -84,7 +84,7 @@ def log_control_center(
 
   # OpenTelemetry logging
   otel_logger_provider = LoggerProvider(resource=otel_resource)
-  set_otel_logger_provider(otel_logger_provider)
+  set_logger_provider(otel_logger_provider)
 
   if os.getenv("OTEL_EXPORTER_OTLP_ENDPOINT") is None:
     os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = "localhost:4317"
