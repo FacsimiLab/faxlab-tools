@@ -7,5 +7,6 @@ from . import utils
 
 # Expose __version__ at the package level
 from .__version__ import __version__
+from .logger import log_control_center
 
 __all__ = ["core", "figures", "tables", "transcriptomics", "io", "utils"]

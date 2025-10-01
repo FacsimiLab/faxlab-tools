@@ -32,7 +32,7 @@ def init_tracing(otel_resource: Resource):
     _tracing_initialized = True
 
 
-def file_nb_logging(
+def log_control_center(
   log_path: str,
   logname: str,
   *,
