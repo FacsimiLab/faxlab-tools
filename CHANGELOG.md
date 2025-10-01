@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-10-01)
+
+### Documentation
+
+- Update readme with more detailed instructions on the development install vs editable install
+  ([`6dbbdcd`](https://github.com/pranavmishra90/faxlab-tools/commit/6dbbdcded2e956636e5a15ba89b042eae2e1bf75))
+
+
 ## v0.1.0 (2025-10-01)
 
 ### Bug Fixes
@@ -57,6 +65,9 @@ Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
 - Cleanup pre-release tags on push to main
   ([`fe15e26`](https://github.com/pranavmishra90/faxlab-tools/commit/fe15e2684f6b21e00bac29116205c9ed5b1d92b9))
 
+- Do not bump version on ci
+  ([`c0d4887`](https://github.com/pranavmishra90/faxlab-tools/commit/c0d48875b7becaedc98dc810548f3ee4353bd138))
+
 - Fix duplicate repo hooks
   ([`cc94f81`](https://github.com/pranavmishra90/faxlab-tools/commit/cc94f81f37ddd8f37b36229119d3f6cecc3d8af4))
 
@@ -81,33 +92,6 @@ Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
 - Semantic versioning in the alpha stages will occur on the main branch, where breaking changes do
   not require a major version bump.
   ([`1694a58`](https://github.com/pranavmishra90/faxlab-tools/commit/1694a58f3e46294e8d1b1a64a565aceab09dd0dd))
-
-- **semantic-release**: Automatic update - v0.1.0
-  ([`c7ecbee`](https://github.com/pranavmishra90/faxlab-tools/commit/c7ecbee28d74ed3ba3ab9ed8830acbbe75c58cb8))
-
-- **semantic-release**: Automatic update - v0.1.0
-  ([`84f8d3d`](https://github.com/pranavmishra90/faxlab-tools/commit/84f8d3de27e30bce4758cb33b0e38ba7cca8577f))
-
-- **semantic-release**: Automatic update - v0.1.0-beta.1
-  ([`8fba61a`](https://github.com/pranavmishra90/faxlab-tools/commit/8fba61abcb11526b46662dbc025c71fe59840dd5))
-
-- **semantic-release**: Automatic update - v0.1.0-beta.2
-  ([`d79b628`](https://github.com/pranavmishra90/faxlab-tools/commit/d79b62885b254d9c43efa37b4c8edb1d28a9f98e))
-
-- **semantic-release**: Automatic update - v0.2.0
-  ([`82e6273`](https://github.com/pranavmishra90/faxlab-tools/commit/82e6273ef3024f4225bab5d9b0dd7c8296d6fc0e))
-
-- **semantic-release**: Automatic update - v0.2.0-beta.1
-  ([`0678655`](https://github.com/pranavmishra90/faxlab-tools/commit/067865518bb4f035ddc490cf82f97e30d58eb021))
-
-- **semantic-release**: Automatic update - v0.2.0-beta.2
-  ([`0d523d3`](https://github.com/pranavmishra90/faxlab-tools/commit/0d523d308fa371974999e6b05df2680c0e72df88))
-
-- **semantic-release**: Automatic update - v0.2.0-beta.3
-  ([`4db4318`](https://github.com/pranavmishra90/faxlab-tools/commit/4db43189491afbb3311b381ed6bccfb5fff153cc))
-
-- **semantic-release**: Automatic update - v0.3.0
-  ([`f0b0381`](https://github.com/pranavmishra90/faxlab-tools/commit/f0b03815574489836cf7abf17b4a888ad6324911))
 
 ### Documentation
 
