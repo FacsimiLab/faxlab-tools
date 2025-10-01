@@ -2,6 +2,9 @@ name: Cleanup Pre-Release Tags
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -9,7 +12,7 @@ concurrency:
   
 
 jobs:
-  delete-rc-tags:
+  delete-prerelease-tags:
     runs-on: ubuntu-latest
 
     steps:
