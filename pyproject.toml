@@ -1,6 +1,6 @@
 [project]
 name = "faxlab-tools"
-version = "0.4.0"
+version = "0.5.0-beta.1"
 description = "A python library of tools useful for reproducible research, built upon the FacsimiLab philosophy."
 readme = "README.md"
 authors = [
@@ -27,6 +27,7 @@ dev = [
   "pytest>=8.4.2",
   "python-semantic-release>=10.2.0",
   "ruff>=0.12.2",
+  "uv ~= 0.7.12",
 ]
 
 # Lint and Format
@@ -92,9 +93,8 @@ version_toml = [
 assets = []
 
 build_command = """
-    uv lock --upgrade-package "$PACKAGE_NAME"
-    git add uv.lock
-    uv build
+python -m pip install -e '.[build]'
+/bin/bash scripts/ci/psr_build.sh $PACKAGE_NAME
 """
 
 commit_message = "ci(semantic-release): automatic update - v{version}"
@@ -111,7 +111,7 @@ template_dir = "./github/templates"
 
 [tool.semantic_release.commit_author]
 env = "GIT_COMMIT_AUTHOR"
-default = "Pranav Kumar Mishra <62562712+pranavmishra90@users.noreply.github.com>"
+default = "FacsimiLab Bot <195262995+facsimilab-bot@users.noreply.github.com>"
 
 [tool.semantic_release.commit_parser_options]
 allowed_tags = [
@@ -172,8 +172,19 @@ keep_trailing_newline = false
 extensions = []
 autoescape = true
 
-[tool.semantic_release.remote]
-name = "origin"
+# [tool.semantic_release.remote]
+# name = "origin"
+# type = "github"
+# ignore_token_for_push = true
+# insecure = false
+
+[tool.semantic_release.publish]
+dist_glob_patterns = [
+  "",
+]
+upload_to_vcs_release = true
+name = "upstream"
 type = "github"
+
 ignore_token_for_push = true
 insecure = false

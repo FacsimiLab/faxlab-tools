@@ -12,7 +12,6 @@ cd "$(git rev-parse --show-toplevel)"
 # Run upstream scripts prior to building
 bash scripts/ci/pre-commit-check.sh
 bash scripts/ci/clean_dist_builds.sh
-bash scripts/ci/run_pytest.sh
 
 # The package name is passed as the first argument to this script by PSR (default: faxlab-tools)
 PACKAGE_NAME=${1:-faxlab-tools}

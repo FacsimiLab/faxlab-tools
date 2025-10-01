@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.5.0-beta.1 (2025-10-01)
+
+### Documentation
+
+- Fix changelog issue
+  ([`0894905`](https://github.com/pranavmishra90/faxlab-tools/commit/0894905bb5d8150d9f8f35d1eaae0c570ad01c3a))
+
+### Features
+
+- Add scripts for the build and CI pipelines
+  ([`09e6aab`](https://github.com/pranavmishra90/faxlab-tools/commit/09e6aab2f43d22739023160d8c781d8b17a0bf37))
+
+
 ## v0.4.1-beta.1 (2025-10-01)
 
 ### Documentation

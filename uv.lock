@@ -408,7 +408,7 @@ wheels = [
 
 [[package]]
 name = "faxlab-tools"
-version = "0.4.1b1"
+version = "0.5.0b1"
 source = { editable = "." }
 dependencies = [
     { name = "ipython", version = "8.37.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -434,6 +434,7 @@ dev = [
     { name = "pytest" },
     { name = "python-semantic-release" },
     { name = "ruff" },
+    { name = "uv" },
 ]
 
 [package.metadata]
@@ -456,6 +457,7 @@ dev = [
     { name = "pytest", specifier = ">=8.4.2" },
     { name = "python-semantic-release", specifier = ">=10.2.0" },
     { name = "ruff", specifier = ">=0.12.2" },
+    { name = "uv", specifier = "~=0.7.12" },
 ]
 
 [[package]]
