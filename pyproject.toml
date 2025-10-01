@@ -93,8 +93,8 @@ version_toml = [
 assets = []
 
 build_command = """
-python -m pip install -e '.[build]'
-/bin/bash scripts/ci/psr_build.sh $PACKAGE_NAME
+uv sync --all-extras
+/bin/bash scripts/ci/psr_build.sh $PACKAGE_NAME $NEW_VERSION
 """
 
 commit_message = "ci(semantic-release): automatic update - v{version}"

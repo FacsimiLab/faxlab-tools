@@ -15,8 +15,11 @@ bash scripts/ci/clean_dist_builds.sh
 
 # The package name is passed as the first argument to this script by PSR (default: faxlab-tools)
 PACKAGE_NAME=${1:-faxlab-tools}
+NEW_VERSION=${2}
 
 # Update the package version in uv.lock
+echo -e "Python semantic release has determined the new version to be: $NEW_VERSION"
+
 echo -e "Updating the uv lock package: $PACKAGE_NAME"
 uv lock --upgrade-package "$PACKAGE_NAME"
 git add uv.lock
