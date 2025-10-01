@@ -2,12 +2,16 @@
 
 <!-- version list -->
 
+
 ## Unreleased
+
 
 ### Documentation
 
+
 - Fix changelog issue
   ([`2ff1347`](https://github.com/pranavmishra90/faxlab-tools/commit/2ff134734c6a1fe9740c9ba8080ebef43b1443f2))
+
 
 
 ## v0.4.0 (2025-10-01)
@@ -22,12 +26,22 @@
   [`07fe6d5`](https://github.com/pranavmishra90/faxlab-tools/commit/07fe6d527850a41115ad273345c9d238376c5467))
 
 
+
+
 ## v0.2.0 (2025-09-30)
 
 ### Bug Fixes
 
+- Add addtitional lint and pre-commit config
+  ([`2a7aea7`](https://github.com/FacsimiLab/faxlab-tools/commit/2a7aea731cdeafc8201e5b1b28aecbbc39e7f801))
+
+- Add version file in addition to pyproject
+  ([`b028ef7`](https://github.com/FacsimiLab/faxlab-tools/commit/b028ef7db1bd845a1a117b62bd691479d5001432))
+
+
 - Allow for fewer than 10 columns
   ([`0b9b051`](https://github.com/pranavmishra90/faxlab-tools/commit/0b9b0517dd35bd321e90f34b2938dfbfa65d50bc))
+
 
 - Functions missing from __all__, remove re.escape to allow regex patterns. ensure categorical dtype
   before renaming categories.
@@ -38,14 +52,7 @@
 
 ### Continuous Integration
 
-- Fix missing project number
-  ([`f8c07df`](https://github.com/pranavmishra90/faxlab-tools/commit/f8c07dfd4c8875952ce4b27e1ce5c299f2a18822))
 
-- Fix token which was not working
-  ([`277d629`](https://github.com/pranavmishra90/faxlab-tools/commit/277d62976190e71fb6eb1f78f7daf54f44d73a1f))
-
-- Fix url typo
-  ([`72d6d7a`](https://github.com/pranavmishra90/faxlab-tools/commit/72d6d7ae6a036970de75ec0493a762aaab004c55))
 
 ### Features
 
@@ -76,6 +83,7 @@
 
 ### Continuous Integration
 
+
 - Fix error in uv run pytest
   ([`902b2d1`](https://github.com/pranavmishra90/faxlab-tools/commit/902b2d1994d0c58c9b12258712a175bbcf0baeb0))
 
@@ -84,6 +92,8 @@
 - Add functions to rename categorical columns and a function to perform a find-replace using regex
   and an input json dictionary
   ([`77eb6ea`](https://github.com/pranavmishra90/faxlab-tools/commit/77eb6eaebe3a0fce69b26f312c233ed741fdd459))
+
+
 
 
 ## v0.2.0-beta.1 (2025-09-23)
@@ -115,17 +125,23 @@
 
 ### Features
 
+
 - Add the CI/CD workflows from FacsimiLab
-  ([`c0aabbe`](https://github.com/pranavmishra90/faxlab-tools/commit/c0aabbef60bfae889c5e6433b3a9385592f64aca))
+  ([`c0aabbe`](https://github.com/FacsimiLab/faxlab-tools/commit/c0aabbef60bfae889c5e6433b3a9385592f64aca))
+
+
 
 - Add tool to report on the size of a file
-  ([`caa40a0`](https://github.com/pranavmishra90/faxlab-tools/commit/caa40a0f5e2c987fc9ac84723b014e68d231ed23))
+  ([`caa40a0`](https://github.com/FacsimiLab/faxlab-tools/commit/caa40a0f5e2c987fc9ac84723b014e68d231ed23))
 
 - Function to filter a dataframe based on a substring
-  ([`681ec7f`](https://github.com/pranavmishra90/faxlab-tools/commit/681ec7f2611037b527036358caa8842e0fe86fb2))
+  ([`681ec7f`](https://github.com/FacsimiLab/faxlab-tools/commit/681ec7f2611037b527036358caa8842e0fe86fb2))
+
+
 
 - Initialize git-annex, which can be used for pytest processing larger files
-  ([`cddba54`](https://github.com/pranavmishra90/faxlab-tools/commit/cddba5415be1f8f6e9ce596931ca5bfb210ac0ca))
+  ([`cddba54`](https://github.com/FacsimiLab/faxlab-tools/commit/cddba5415be1f8f6e9ce596931ca5bfb210ac0ca))
+
 
 - **io**: Add function to convert HDF5 to melted DataFrame
   ([`d7d1035`](https://github.com/pranavmishra90/faxlab-tools/commit/d7d1035488fff4762082f76afabfb9e7bab7537f))
