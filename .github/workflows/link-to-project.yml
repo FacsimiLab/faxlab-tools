@@ -9,8 +9,21 @@ on:
       - opened
 
 jobs:
-  add-to-project:
-    name: Add issue and PR to project
+  add-issue-to-project:
+    name: Add issue to project
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/orgs/FacsimiLab/projects/1
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+
+  add-pr-to-project:
+    name: Add PR to project (upstream only)
+    # Action secrets are not available when PRs come from forks, so we only run this for PRs
+    # created in the same repository.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v1.0.2
