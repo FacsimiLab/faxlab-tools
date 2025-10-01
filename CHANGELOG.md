@@ -1,7 +1,21 @@
 # CHANGELOG
 
 
+## v0.3.0 (2025-10-01)
+
+### Features
+
+- **logger**: Custom python logger with exports to file, notebook, and open telemetry
+  ([#5](https://github.com/FacsimiLab/faxlab-tools/pull/5),
+  [`07fe6d5`](https://github.com/FacsimiLab/faxlab-tools/commit/07fe6d527850a41115ad273345c9d238376c5467))
+
+
 ## v0.2.0 (2025-09-30)
+
+### Continuous Integration
+
+- **semantic-release**: Automatic update - v0.2.0
+  ([`82e6273`](https://github.com/FacsimiLab/faxlab-tools/commit/82e6273ef3024f4225bab5d9b0dd7c8296d6fc0e))
 
 
 ## v0.1.0 (2025-09-30)
