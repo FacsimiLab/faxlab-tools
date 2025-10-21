@@ -8,7 +8,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "ipython>=8.37.0",
+    "ipython>=8",
     "numpy>=2",
     "opentelemetry-api>=1.37.0",
     "opentelemetry-exporter-otlp-proto-grpc>=1.37.0",
@@ -130,28 +130,18 @@ minor_tags = ["feat"]
 patch_tags = ["fix", "perf", "docs"]
 default_bump_level = 0
 
-# [tool.semantic_release.branches.release]
-# match = "release"
-# prerelease = false
+[tool.semantic_release.branches.release]
+match = "release|release/*"
+prerelease = false
 
-# [tool.semantic_release.branches.rc]
-# match = "rc/*"
-# prerelease_token = "rc"
-# prerelease = true
+[tool.semantic_release.branches.rc]
+match = "rc/*"
+prerelease_token = "rc"
+prerelease = true
 
 [tool.semantic_release.branches.main]
 match = "main"
 prerelease = false
-
-[tool.semantic_release.branches.feat]
-match = "feat/*"
-prerelease_token = "beta"
-prerelease = true
-
-[tool.semantic_release.branches.fix]
-match = "fix/*"
-prerelease_token = "beta"
-prerelease = true
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
