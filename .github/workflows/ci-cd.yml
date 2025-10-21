@@ -3,7 +3,8 @@ name: Continuous Delivery
 on:
   push:
     branches:
-      - main
+      - release
+      - release/*
   workflow_dispatch:
 
 permissions:
@@ -20,6 +21,7 @@ jobs:
   continuous-delivery:
     name: Continuous Delivery
     runs-on: ubuntu-latest
+    if: github.repository == 'FacsimiLab/faxlab-tools'
     
     steps:
       # Note: we need to checkout the repository at the workflow sha in case during the workflow
@@ -38,8 +40,12 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
 
+      - name: Create Virtual Environment & Install Dependencies
+        run: |
+          uv sync --dev --all-extras
+
       - name: List and delete pre-release tags
-        id: list_tags
+        id: delete-pre-release-tags
         run: |
           echo "Searching for tags containing 'rc', 'main', 'beta', or 'alpha'..."
           TAGS=$(git tag -l "*-rc*" "*-main*" "*-beta*", "*-alpha*")
@@ -64,7 +70,7 @@ jobs:
 
       - name: Testing
         run: |
-          uv run pytest -s -v
+          uv run --frozen pytest -s -v
 
       - name: Test Build
         run: |
@@ -79,7 +85,7 @@ jobs:
           git_committer_email: "195262995+facsimilab-bot@users.noreply.github.com"
           ssh_private_signing_key: ${{ secrets.FACSIMILAB_BOT_SSHKEY }}
           ssh_public_signing_key: ${{ secrets.FACSIMILAB_BOT_SSH_PUBKEY }}
-          build: "false"
+          build: "true"
           vcs_release: "true"
           changelog: "true"
           commit: "true"
