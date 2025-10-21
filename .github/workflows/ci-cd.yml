@@ -21,6 +21,7 @@ jobs:
   continuous-delivery:
     name: Continuous Delivery
     runs-on: ubuntu-latest
+    if: github.repository == 'FacsimiLab/faxlab-tools'
     
     steps:
       # Note: we need to checkout the repository at the workflow sha in case during the workflow
