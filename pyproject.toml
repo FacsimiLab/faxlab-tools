@@ -170,7 +170,7 @@ autoescape = true
 
 [tool.semantic_release.publish]
 dist_glob_patterns = [
-  "",
+  "dist/*.wsl",
 ]
 upload_to_vcs_release = true
 name = "upstream"
