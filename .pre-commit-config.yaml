@@ -16,10 +16,10 @@ repos:
         args: [--fix=lf]
   
   
-  - repo: local
-    hooks:
-      - id: update-local-envs
-        name: Update local python envs
-        entry: /bin/bash .datalad/procedures/update-local-envs.sh
-        language: script
-        # types: [file]
+  # - repo: local
+  #   hooks:
+  #     - id: update-local-envs
+  #       name: Update local python envs
+  #       entry: /bin/bash .datalad/procedures/update-local-envs.sh
+  #       language: script
+  #       # types: [file]
