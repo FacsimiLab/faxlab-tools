@@ -1,27 +1,29 @@
 # CHANGELOG
 
+<!-- version list -->
 
-## v0.3.2 (2025-10-01)
+## v0.5.0-beta.1 (2025-10-01)
 
-### Continuous Integration
+### Documentation
 
-- Do not bump version on ci ([#7](https://github.com/FacsimiLab/faxlab-tools/pull/7),
-  [`027626b`](https://github.com/FacsimiLab/faxlab-tools/commit/027626be6b5e8e3ff3410f5858a28ff0b81d4c6d))
+- Fix changelog issue
+  ([`0894905`](https://github.com/pranavmishra90/faxlab-tools/commit/0894905bb5d8150d9f8f35d1eaae0c570ad01c3a))
+
+### Features
+
+- Add scripts for the build and CI pipelines
+  ([`09e6aab`](https://github.com/pranavmishra90/faxlab-tools/commit/09e6aab2f43d22739023160d8c781d8b17a0bf37))
 
 
-## v0.3.1 (2025-10-01)
+## v0.4.1-beta.1 (2025-10-01)
 
-### Continuous Integration
+### Documentation
 
-- Cleanup pre-release tags on push to main
-  ([`fe15e26`](https://github.com/FacsimiLab/faxlab-tools/commit/fe15e2684f6b21e00bac29116205c9ed5b1d92b9))
+- Fix changelog issue
+  ([`0894905`](https://github.com/pranavmishra90/faxlab-tools/commit/0894905bb5d8150d9f8f35d1eaae0c570ad01c3a))
 
-- Cleanup pre-release tags on push to main. split the link-to-project actions by type. PR limited to
-  upstream repo only ([#6](https://github.com/FacsimiLab/faxlab-tools/pull/6),
-  [`015bab9`](https://github.com/FacsimiLab/faxlab-tools/commit/015bab935871f337d76dbfcd8ea6d9c8d9c9642d))
 
-- Do not bump version on ci
-  ([`c0d4887`](https://github.com/FacsimiLab/faxlab-tools/commit/c0d48875b7becaedc98dc810548f3ee4353bd138))
+## Unreleased
 
 ### Documentation
 

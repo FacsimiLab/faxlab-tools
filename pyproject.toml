@@ -1,8 +1,6 @@
 [project]
 name = "faxlab-tools"
-
-version = "0.3.2"
-
+version = "0.5.0-beta.1"
 description = "A python library of tools useful for reproducible research, built upon the FacsimiLab philosophy."
 readme = "README.md"
 authors = [
@@ -10,7 +8,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "ipython>=8.37.0",
+    "ipython>=8",
     "numpy>=2",
     "opentelemetry-api>=1.37.0",
     "opentelemetry-exporter-otlp-proto-grpc>=1.37.0",
@@ -29,6 +27,7 @@ dev = [
   "pytest>=8.4.2",
   "python-semantic-release>=10.2.0",
   "ruff>=0.12.2",
+  "uv ~= 0.7.12",
 ]
 
 # Lint and Format
@@ -95,9 +94,8 @@ version_toml = [
 assets = []
 
 build_command = """
-    uv lock --upgrade-package "$PACKAGE_NAME"
-    git add uv.lock
-    uv build
+uv sync --all-extras
+/bin/bash scripts/ci/psr_build.sh $PACKAGE_NAME $NEW_VERSION
 """
 
 commit_message = "ci(semantic-release): automatic update - v{version}"
@@ -114,7 +112,7 @@ template_dir = "./github/templates"
 
 [tool.semantic_release.commit_author]
 env = "GIT_COMMIT_AUTHOR"
-default = "Pranav Kumar Mishra <62562712+pranavmishra90@users.noreply.github.com>"
+default = "FacsimiLab Bot <195262995+facsimilab-bot@users.noreply.github.com>"
 
 [tool.semantic_release.commit_parser_options]
 allowed_tags = [
@@ -133,28 +131,18 @@ minor_tags = ["feat"]
 patch_tags = ["fix", "perf", "docs"]
 default_bump_level = 0
 
-# [tool.semantic_release.branches.release]
-# match = "release"
-# prerelease = false
+[tool.semantic_release.branches.release]
+match = "release|release/*"
+prerelease = false
 
-# [tool.semantic_release.branches.rc]
-# match = "rc/*"
-# prerelease_token = "rc"
-# prerelease = true
+[tool.semantic_release.branches.rc]
+match = "rc/*"
+prerelease_token = "rc"
+prerelease = true
 
 [tool.semantic_release.branches.main]
 match = "main"
 prerelease = false
-
-[tool.semantic_release.branches.feat]
-match = "feat/*"
-prerelease_token = "beta"
-prerelease = true
-
-[tool.semantic_release.branches.fix]
-match = "fix/*"
-prerelease_token = "beta"
-prerelease = true
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
@@ -175,8 +163,19 @@ keep_trailing_newline = false
 extensions = []
 autoescape = true
 
-[tool.semantic_release.remote]
-name = "origin"
+# [tool.semantic_release.remote]
+# name = "origin"
+# type = "github"
+# ignore_token_for_push = true
+# insecure = false
+
+[tool.semantic_release.publish]
+dist_glob_patterns = [
+  "dist/*.wsl",
+]
+upload_to_vcs_release = true
+name = "upstream"
 type = "github"
+
 ignore_token_for_push = true
 insecure = false
