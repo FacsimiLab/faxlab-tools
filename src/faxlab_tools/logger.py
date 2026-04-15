@@ -175,7 +175,7 @@ def log_control_center(
   logger.setLevel(min(int_file_level, int_notebook_level))
 
   # Initialization log inside a span
-  with tracer.start_as_current_span("initialize-logger") as span:
+  with tracer.start_as_current_span(logname) as span:
     logger.debug(
       f"Initialized master FacsimiLab Logger. File level: {int_file_level}, Notebook level: {int_notebook_level}, "
       f"OpenTelemetry Exporter: {os.getenv('OTEL_EXPORTER_OTLP_ENDPOINT')}"
