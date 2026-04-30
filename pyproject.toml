@@ -69,6 +69,7 @@ exclude = [
 #------------------------------------------------------------------------
 [tool.pytest.ini_options]
 addopts = "-s -v"
+testpaths = ["tests"]
 
 
 # Build
