@@ -62,6 +62,7 @@ def log_control_center(
   *,
   file_loglevel: str = "INFO",
   notebook_loglevel: str = "DEBUG",
+  tracer_input: trace.Tracer | None = None,
   otel_resource: Resource = None,
   otel_insecure: bool = True,
 ) -> tuple[logging.Logger, trace.Tracer]:
@@ -87,17 +88,34 @@ def log_control_center(
 
   existing_tracer = _tracing_initialized
   existing_logger = _otel_logger_initialized
-
   
+  provider = TracerProvider(resource=otel_resource)
+  exporter = OTLPSpanExporter(insecure=otel_insecure)
+  processor = BatchSpanProcessor(exporter)
+  provider.add_span_processor(processor)
 
-  # Initialize tracing if needed
-  if not _tracing_initialized:
-    if otel_resource is None:
-      otel_resource = Resource.create({"service.name": "default-service"})
-      rprint("[bold yellow]Warning:[/bold yellow] No resource passed; using default.")
-    init_tracing(otel_resource, otel_insecure)
+  # Sets the global default tracer provider
+  trace.set_tracer_provider(provider)
 
-  tracer = trace.get_tracer(__name__)
+  # Creates a tracer from the global tracer provider
+  
+  if tracer_input is None:
+    try: 
+      global tracer
+      print(f"Existing Tracer: {tracer}")
+    except Exception as e:
+      print(f"No existing tracer found: {e}")
+      tracer = trace.get_tracer(__name__)  
+
+  print(f"Updated Tracer: {tracer}")
+  # # Initialize tracing if needed
+  # if not _tracing_initialized:
+  #   if otel_resource is None:
+  #     otel_resource = Resource.create({"service.name": "default-service"})
+  #     rprint("[bold yellow]Warning:[/bold yellow] No resource passed; using default.")
+  #   init_tracing(otel_resource, otel_insecure)
+
+  # tracer = trace.get_tracer(__name__)
 
   # Prepare Python logger
   logger = logging.getLogger(logname)
@@ -180,7 +198,7 @@ def log_control_center(
       f"Initialized master FacsimiLab Logger. File level: {int_file_level}, Notebook level: {int_notebook_level}, "
       f"OpenTelemetry Exporter: {os.getenv('OTEL_EXPORTER_OTLP_ENDPOINT')}"
     )
-    span.set_attribute("log_control_center.existing_tracer", existing_tracer)
-    span.set_attribute("log_control_center.existing_logger", existing_logger)
+    # span.set_attribute("log_control_center.existing_tracer", existing_tracer)
+    # span.set_attribute("log_control_center.existing_logger", existing_logger)
 
   return logger, tracer
