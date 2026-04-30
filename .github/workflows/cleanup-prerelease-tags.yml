@@ -25,7 +25,7 @@ jobs:
         id: list_tags
         run: |
           echo "Searching for tags containing 'rc', 'main', 'beta', or 'alpha'..."
-          TAGS=$(git tag -l "*-rc*" "*-main*" "*-beta*", "*-alpha*")
+          TAGS=$(git tag -l "*-rc*" "*-main*" "*-beta*" "*-alpha*")
           echo "Found tags:"  >> $GITHUB_STEP_SUMMARY
           echo "$TAGS"  >> $GITHUB_STEP_SUMMARY
           if [ -z "$TAGS" ]; then
